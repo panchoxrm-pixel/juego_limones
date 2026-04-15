@@ -16,3 +16,8 @@ function generarAleatorio2(min,max){
     numeroEntero = numeroEntero+min-1;
     return numeroEntero
 }//Este está puesto en el juego del gato.
+
+function mostrarEnSpan(idSpan,valor){
+    let componente=document.getElementById(idSpan)
+        componente.textContent=valor;
+}
