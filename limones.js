@@ -14,9 +14,11 @@ let limonY=0;
 let puntaje=0;
 let vidas=3;
 let velocidadCaida=200;
+let intervalo;
 
 function iniciar(){
-    setInterval(bajarLimon,velocidadCaida);
+    clearInterval(intervalo)
+    intervalo=setInterval(bajarLimon,velocidadCaida);
     dibujarSuelo();
     dibujarPersonaje();
     aparecerLimon();
@@ -73,7 +75,8 @@ function detectarAtrapado(){
         //alert("¡ATRAPADO!");
         aparecerLimon();
         puntaje=puntaje+1;
-        mostrarEnSpan("txtPuntaje",puntaje);          
+        mostrarEnSpan("txtPuntaje",puntaje);
+        verificarEstado()         
     }
 }
 
@@ -82,6 +85,7 @@ function detectarPiso(){
         aparecerLimon();
         vidas=vidas-1;
         mostrarEnSpan("txtVidas",vidas);  
+        verificarEstado()
     }
 }
 
@@ -89,4 +93,22 @@ function aparecerLimon(){
     limonX=generarAleatorio(0,canvas.width-ANCHO_LIMON);
     limonY=0;
     actualizarPantalla();
+}
+
+function reiniciarJuego(){
+    puntaje=0;
+    vidas=3;
+    personajeX = canvas.width / 2;
+    mostrarEnSpan("txtPuntaje", puntaje);
+    mostrarEnSpan("txtVidas", vidas);
+    iniciar();
+}
+
+function verificarEstado(){
+    if(vidas==0){
+        alert("Game over - Te quedaste sin vidas");
+    }
+    if(puntaje==5){
+        alert("Felicidades, ganaste, atrapaste 5 limones");
+    }
 }
