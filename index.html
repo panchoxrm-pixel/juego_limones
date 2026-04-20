@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Limones</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Limones · juego elegante</title>
   <link rel="stylesheet" href="limones.css">
   <script src="utils.js"></script>
 </head>
 <body onload="iniciar()">
   <div class="contenedor">
-    <h1>Atrapando limones</h1>
-    <p>Ganas el juego si atrapas 5 limones</p>
-    <h2>Autor: Francisco Rodríguez</h2>
+    <!-- Cabecera centrada: imagen + título + textos -->
+    <div class="header-centrado">
+      <div class="imagenLimones">
+        <img src="rodajasLimones.jpg" alt="rodajas de limón">
+      </div>
+      <div class="titulo-wrapper">
+        <h1>Atrapando limones</h1>
+        <p>Atrapa 5 limones para ganar el juego / Pierdes una vida cada vez que un limón cae al suelo</p>
+        <h2>Autor: Francisco Rodríguez</h2>
+      </div>
+    </div>
     <canvas id="areaJuego" width="600" height="400"></canvas>
     <div class="panel">
       <p>Puntaje: <span id="txtPuntaje">0</span></p>
